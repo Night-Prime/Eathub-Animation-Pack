@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  scroll-behavior: smooth;
+  scroll-behavior:smooth;
 }
 
 .App {
@@ -48,16 +48,22 @@ footer {
 footer {
   height: 60vh;
   margin-bottom: 0;
+  font-weight: 600;
 }
 
-section {
-  height: 100vh;
+.grid {
+  height: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  gap: 50px;
+  overflow: hidden;
 }
 
 main {
-  height: 50%;
+  height: 100%;
   width: 100%;
   display: flex;
   align-items: center;
@@ -69,32 +75,66 @@ main {
 
 main div {
   flex: 1;
-  height: 100%;
+  height: 60vh;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 10px;
   Transition: all ease-in 1s;
+  text-align: center;
 }
 
-section {
-  height: 100vh;
-  height: 100vh;
+.mobile{
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 50px;
-  gap: 50px;
-  overflow: hidden;
+  margin-top: 4rem;
 }
 
-section div {
-  flex: 1;
-  height: 80%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
-  Transition: all ease-in 1s;
+.special{
+  margin-top: 5rem;
 }
+
+.showcase{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.showcase h5{
+  font-size: 32px;
+  width: 70%;
+}
+
+.showcase img{
+  width: 40%;
+  height: 40%;
+}
+
+main .first{
+  height: 40vh;
+}
+
+main .second{
+  flex: 5 !important;
+  height: 70vh;
+}
+
+div img{
+  width: 80%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.child-2{
+  position: relative;
+  text-align: left;
+}
+
+.phone{
+  transform: scaleX(-1);
+  position: absolute;
+  z-index: -1;
+  right:-5px;
+}
+
+

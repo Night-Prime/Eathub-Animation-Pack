@@ -1,8 +1,14 @@
 import React, { useState, useLayoutEffect, useRef } from "react";
+import ScrollTrigger from "gsap/ScrollTrigger";
 import "./App.css";
 import logo from "./img/Logo-white.png";
 import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
+import food1 from "./img/1 (2).jpg";
+import bike from "./img/bike.png";
+import mobile1 from "./img/mobile-1.png";
+import mobile2 from "./img/mobile-2.png";
+
+// reminder to remove all markers
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -37,27 +43,26 @@ function App() {
             x: 0,
             y: 0,
             opacity: 0,
-            // duration:.01,
           },
           {
-            x: 0,
-            y: 0,
+            x: -50,
+            y: 150,
             opacity: 1,
-            duration: 0.2,
+            duration: 1,
+            scale: 1.8,
             ease: "bounce",
             scrollTrigger: {
               trigger: ".child",
-              markers: true,
-              start: "top center",
+              start: "top bottom",
               end: "bottom bottom",
               scrub: true,
             },
           }
         )
         .fromTo(
-          ".child-1",
+          ".first",
           {
-            x: 0,
+            x: 200,
             y: 0,
             opacity: 0,
             // duration:.01,
@@ -70,7 +75,6 @@ function App() {
             ease: "bounce",
             scrollTrigger: {
               trigger: ".child-1",
-              markers: true,
               start: "top center",
               end: "bottom bottom",
               scrub: true,
@@ -78,9 +82,9 @@ function App() {
           }
         )
         .fromTo(
-          ".child-2",
+          ".second",
           {
-            x: 0,
+            x: -200,
             y: 0,
             opacity: 0,
             // duration:.01,
@@ -92,8 +96,54 @@ function App() {
             duration: 0.2,
             ease: "bounce",
             scrollTrigger: {
+              trigger: ".child-1",
+              start: "top center",
+              end: "bottom bottom",
+              scrub: true,
+            },
+          }
+        )
+        .fromTo(
+          ".child-2",
+          {
+            x: 100,
+            y: 500,
+            opacity: 0,
+            ease: "ease-in",
+          },
+          {
+            x: 0,
+            y: 0,
+            opacity: 1,
+            duration: 0.2,
+            ease: "ease-in",
+            stagger: 1, // Add a stagger of 0.2 seconds
+            scrollTrigger: {
               trigger: ".child-2",
-              markers: true,
+              // markers: "false",
+              start: "top center",
+              end: "bottom bottom",
+              scrub: true,
+            },
+          }
+        )
+        .fromTo(
+          ".child-text",
+          {
+            x: -100,
+            y: -500,
+            opacity: 0,
+            ease: "ease-in",
+          },
+          {
+            x: 0,
+            y: 0,
+            opacity: 1,
+            duration: 0.2,
+            ease: "ease-in",
+            stagger: 1, // Add a stagger of 0.2 seconds
+            scrollTrigger: {
+              trigger: ".child-2",
               start: "top center",
               end: "bottom bottom",
               scrub: true,
@@ -120,19 +170,35 @@ function App() {
       </header>
       <section className="grid">
         <main ref={divRef}>
-          <div className="child">Customers</div>
-          <div className="child">Food Business</div>
+          <div className="child">
+            <img src={food1} alt={food1} />
+          </div>
         </main>
-        <main ref={divRef}>
-          <div className="child-1">Customers</div>
-          <div className="child-1">Food Business</div>
+        <main className="special" ref={divRef}>
+          <div className="child-text">
+            <h5>Easy Mobile Interface to browse and order Meals</h5>
+          </div>
+          <div className="child-2">
+            <img src={mobile1} alt={mobile1} />
+            <img src={mobile2} alt={mobile2} className="phone" />
+          </div>
         </main>
-        <main ref={divRef}>
-          <div className="child-2">Customers</div>
-          <div className="child-2">Food Business</div>
+        <main className="mobile" ref={divRef}>
+          <h3>To All Local Food Business Owners</h3>
+          <main className="showcase">
+            <div className="child-1 first">
+              <h5>
+                Joining us, you'll have the opportunity to simplify your
+                delivery process & improve your overall business operations.
+              </h5>
+            </div>
+            <div className="child-1 second">
+              <img src={bike} alt={bike} />
+            </div>
+          </main>
         </main>
       </section>
-      <footer>Eathub 2023</footer>
+      <footer>Making Food Services Seamless and easy.</footer>
     </div>
   );
 }
